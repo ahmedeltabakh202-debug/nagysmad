@@ -31,9 +31,9 @@ button,input,select{font:inherit}
 @keyframes logoIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
 #sp .sp-name{color:#fff;font:800 22px Cairo;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.3)}
 #sp .sp-gold{width:48px;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#c9a227,transparent)}
-.pb{width:min(180px,50vw);height:4px;background:rgba(255,255,255,.12);border-radius:8px;overflow:hidden}
-#pb{height:100%;width:0;background:linear-gradient(90deg,#c9a227,#e8c547);transition:width .12s}
-#pt{display:none}
+.pb{width:min(220px,62vw);height:6px;background:rgba(255,255,255,.14);border-radius:10px;overflow:hidden}
+#pb{height:100%;width:0%;background:linear-gradient(90deg,#c9a227,#e8c547,#c9a227);background-size:200% 100%;transition:width .18s ease-out;border-radius:10px}
+#pt{color:rgba(255,255,255,.85);font:700 13px Cairo;letter-spacing:.5px;min-height:18px}
 
 /* Header */
 header{position:sticky;top:0;z-index:40;background:linear-gradient(135deg,var(--side),#0f3d28);color:#fff;padding:12px 14px calc(12px + env(safe-area-inset-top));box-shadow:0 2px 12px rgba(0,0,0,.2)}
@@ -42,6 +42,15 @@ header .brand{display:flex;align-items:center;gap:10px;cursor:pointer}
 header .brand img{width:42px;height:42px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,.25)}
 header .brand b{font-size:15px;line-height:1.3}
 header .brand small{display:block;opacity:.75;font-size:11px;font-weight:400}
+header .quick-tools{display:flex;align-items:center;gap:6px;flex-shrink:0}
+header .quick-tools button{
+  width:38px;height:38px;border:0;border-radius:11px;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);padding:0;line-height:1
+}
+header .quick-tools button:active{transform:scale(.92);background:rgba(255,255,255,.28)}
+header .quick-tools button.on{background:rgba(201,162,39,.95);color:#1a1408}
 /* Bottom bar: menu left, chat right */
 #botbar{position:fixed;bottom:0;left:0;right:0;z-index:70;display:grid;grid-template-columns:1fr auto 1fr;direction:ltr;align-items:center;padding:8px 14px calc(8px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--bd);box-shadow:0 -4px 20px rgba(0,0,0,.08);gap:6px}
 .bot-left{display:flex;align-items:center;justify-content:flex-start}
@@ -91,6 +100,34 @@ html.dark .k{background:rgba(19,32,25,.65);border-color:rgba(255,255,255,.08)}
 .top-actions button{padding:14px 12px;border:0;border-radius:16px;font:800 14px Cairo;cursor:pointer;box-shadow:0 6px 20px rgba(13,79,50,.15)}
 .top-actions .ta-prod{background:linear-gradient(135deg,#0f5132,#1a7a4a);color:#fff}
 .top-actions .ta-scan{background:linear-gradient(135deg,#c9a227,#b8962a);color:#1a1408}
+.ta-search-wrap{display:flex;justify-content:center;margin:4px 4px 10px}
+.ta-search{width:min(100%,280px);padding:13px 18px;border:0;border-radius:16px;font:800 14px Cairo;cursor:pointer;color:#fff;background:linear-gradient(135deg,#1d4ed8,#2563eb);box-shadow:0 6px 20px rgba(37,99,235,.28)}
+.ta-search:active{transform:scale(.97)}
+/* كروت الرئيسية الملونة */
+.k.c-sales{background:linear-gradient(160deg,#ecfdf5 0%,#d1fae5 100%);border-color:#a7f3d0}
+.k.c-sales b{color:#047857}
+html.dark .k.c-sales{background:linear-gradient(160deg,#0f2a1e,#134e37);border-color:#1a5c40}
+html.dark .k.c-sales b{color:#6ee7b7}
+.k.c-stock{background:linear-gradient(160deg,#eff6ff 0%,#dbeafe 100%);border-color:#93c5fd}
+.k.c-stock b{color:#1d4ed8}
+html.dark .k.c-stock{background:linear-gradient(160deg,#0f1c2e,#1e3a5f);border-color:#1e4a7a}
+html.dark .k.c-stock b{color:#93c5fd}
+.k.c-cust{background:linear-gradient(160deg,#fff7ed 0%,#ffedd5 100%);border-color:#fdba74}
+.k.c-cust b{color:#c2410c}
+html.dark .k.c-cust{background:linear-gradient(160deg,#2a1a0c,#3d2410);border-color:#7c4a1e}
+html.dark .k.c-cust b{color:#fdba74}
+.k.c-alert{background:linear-gradient(160deg,#fef2f2 0%,#fee2e2 100%);border-color:#fca5a5}
+.k.c-alert b{color:#b91c1c}
+html.dark .k.c-alert{background:linear-gradient(160deg,#2a1212,#3f1a1a);border-color:#7f1d1d}
+html.dark .k.c-alert b{color:#fca5a5}
+.k.c-warn{background:linear-gradient(160deg,#fffbeb 0%,#fef3c7 100%);border-color:#fcd34d}
+.k.c-warn b{color:#b45309}
+html.dark .k.c-warn{background:linear-gradient(160deg,#2a220c,#3d3010);border-color:#78520e}
+html.dark .k.c-warn b{color:#fcd34d}
+.k.c-profit{background:linear-gradient(160deg,#f0fdf4 0%,#bbf7d0 100%);border-color:#86efac}
+.k.c-profit b{color:#15803d}
+html.dark .k.c-profit{background:linear-gradient(160deg,#0f2a18,#14532d);border-color:#166534}
+html.dark .k.c-profit b{color:#86efac}
 .k.flat{aspect-ratio:auto;min-height:auto;padding:14px}
 .k:active{transform:scale(.97)}
 .k .ico{font-size:28px;margin-bottom:8px;line-height:1}
@@ -107,14 +144,21 @@ html.dark .k{background:rgba(19,32,25,.65);border-color:rgba(255,255,255,.08)}
 .prod-pick button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:right;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);cursor:pointer;font:600 13px Cairo}
 .prod-pick button:active{background:var(--g2);color:#fff;border-color:var(--g2)}
 .prod-pick button small{font-weight:400;opacity:.75}
-.cal-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:11px;color:var(--mut);margin-bottom:4px}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal-cell{aspect-ratio:1;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:600 13px Cairo;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;padding:0}
-.cal-cell.empty{border:0;background:transparent;cursor:default}
+.cal-wrap{direction:ltr;max-width:420px;margin:0 auto}
+.cal-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;font-size:12px;font-weight:700;color:var(--mut);margin-bottom:6px;direction:ltr}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;direction:ltr}
+.cal-cell{aspect-ratio:1;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);font:700 14px Cairo;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;min-height:40px}
+.cal-cell.empty{border:0;background:transparent;cursor:default;pointer-events:none}
 .cal-cell.has{border-color:var(--g2);background:#e8f5ee}
+html.dark .cal-cell.has{background:rgba(59,184,112,.18)}
 .cal-cell.soon{border-color:var(--w);background:#fff7ed}
-.cal-cell.today{box-shadow:0 0 0 2px var(--g)}
-.cal-cell .dot{position:absolute;bottom:3px;right:3px;min-width:16px;height:16px;border-radius:8px;background:var(--g2);color:#fff;font-size:10px;line-height:16px;padding:0 4px}
+html.dark .cal-cell.soon{background:rgba(240,160,64,.15)}
+.cal-cell.today{box-shadow:0 0 0 2px var(--g2);font-weight:800}
+.cal-cell .d{line-height:1}
+.cal-cell .dot{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);min-width:16px;height:15px;border-radius:8px;background:var(--g2);color:#fff;font-size:9px;line-height:15px;padding:0 4px;font-weight:700}
+.cal-cell.soon .dot{background:var(--w)}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;direction:rtl}
+.cal-nav b{font-size:15px;color:var(--g)}
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
 @media(min-width:520px){.pgrid{grid-template-columns:repeat(3,1fr)}}
 .pcard{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;min-height:160px}
@@ -227,6 +271,108 @@ html.dark .sec-t{color:var(--g2)}
 #drawer .panel{padding-bottom:calc(96px + env(safe-area-inset-bottom))!important;overflow:auto}
 .pgb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
 .copyr{text-align:center;font-size:11px;color:var(--mut);padding:10px 12px 4px;opacity:.85}
+
+/* —— Premium home polish (layout unchanged) —— */
+.hero{
+  position:relative;
+  padding:28px 16px 18px;
+  margin:0 0 6px;
+  border-radius:24px;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -10%, rgba(201,162,39,.18), transparent 55%),
+    linear-gradient(180deg, rgba(15,81,50,.06), transparent 70%);
+  overflow:hidden;
+}
+html.dark .hero{
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -10%, rgba(201,162,39,.12), transparent 55%),
+    linear-gradient(180deg, rgba(47,158,95,.08), transparent 70%);
+}
+.hero::after{
+  content:'';
+  position:absolute;left:12%;right:12%;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.55),transparent);
+  pointer-events:none;
+}
+.hero img{
+  width:118px;height:118px;border-radius:26px;
+  box-shadow:0 16px 40px rgba(15,81,50,.28),0 0 0 4px rgba(201,162,39,.28);
+  border:3px solid rgba(255,255,255,.85);
+}
+html.dark .hero img{border-color:rgba(255,255,255,.12)}
+.hero h2{
+  font-size:22px;letter-spacing:.2px;
+  background:linear-gradient(135deg,var(--g),var(--g2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+html.dark .hero h2{background:linear-gradient(135deg,#6ee7b7,#2f9e5f);-webkit-background-clip:text;background-clip:text}
+.top-actions button{
+  position:relative;overflow:hidden;
+  box-shadow:0 10px 28px rgba(13,79,50,.22), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.top-actions .ta-prod{background:linear-gradient(145deg,#146b42,#0f5132 55%,#0a3d26)}
+.top-actions .ta-scan{background:linear-gradient(145deg,#e8c547,#c9a227 55%,#a8861c);color:#1a1408}
+.ta-search{
+  background:linear-gradient(145deg,#2563eb,#1d4ed8 60%,#1e40af)!important;
+  box-shadow:0 10px 26px rgba(37,99,235,.32), inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+.sec-t{
+  font-size:13px;letter-spacing:.6px;text-transform:none;
+  margin:22px 6px 10px;opacity:.95;
+}
+.sec-t::before{width:5px;height:18px;background:linear-gradient(180deg,var(--gold2),var(--gold))}
+.k{
+  position:relative;overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 10px 32px rgba(13,79,50,.09), inset 0 1px 0 rgba(255,255,255,.55);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+html.dark .k{box-shadow:0 10px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04)}
+.k::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.22),transparent 42%);
+  opacity:.9;
+}
+html.dark .k::before{background:linear-gradient(145deg,rgba(255,255,255,.06),transparent 45%)}
+.k:active{transform:scale(.965);box-shadow:0 4px 14px rgba(13,79,50,.12)}
+.k .ico{filter:drop-shadow(0 2px 4px rgba(0,0,0,.08))}
+.k b{font-size:18px;letter-spacing:-.2px}
+.k.c-exp{background:linear-gradient(160deg,#fdf4ff 0%,#f3e8ff 100%);border-color:#d8b4fe}
+.k.c-exp b{color:#7e22ce}
+html.dark .k.c-exp{background:linear-gradient(160deg,#1f1228,#2e1a40);border-color:#5b2d7a}
+html.dark .k.c-exp b{color:#d8b4fe}
+.k.c-net{background:linear-gradient(160deg,#ecfeff 0%,#cffafe 100%);border-color:#67e8f9}
+.k.c-net b{color:#0e7490}
+html.dark .k.c-net{background:linear-gradient(160deg,#0c2428,#123a40);border-color:#155e75}
+html.dark .k.c-net b{color:#67e8f9}
+.net-banner{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+  margin:12px auto 14px;padding:12px 10px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0f5132 0%,#1a7a4a 55%,#0f5132 100%);
+  color:#fff;box-shadow:0 10px 28px rgba(15,81,50,.28);
+  border:1px solid rgba(201,162,39,.35);
+  max-width:420px;width:100%;
+}
+.net-banner > div{text-align:center}
+.net-banner small{display:block;font-size:11px;opacity:.85;margin-bottom:4px;font-weight:600}
+.net-banner b{font-size:15px;font-weight:800;letter-spacing:-.2px}
+.net-banner .nb-exp{color:#fecaca}
+.net-banner .nb-net{color:#fde68a}
+header{
+  background:linear-gradient(135deg,#07190f 0%,#0f3d28 48%,#14532d 100%);
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
+}
+header .brand img{box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.home-btn{
+  background:linear-gradient(145deg,#2bb86a,#0f5132);
+  box-shadow:0 10px 28px rgba(15,81,50,.5),0 0 0 3px rgba(201,162,39,.25);
+}
+#fabChat{
+  background:linear-gradient(135deg,#e8c547,#b8962a);
+  box-shadow:0 12px 32px rgba(184,150,42,.5),0 2px 8px rgba(0,0,0,.15);
+}
+
 </style>
 </head>
 <body>
@@ -246,6 +392,11 @@ html.dark .sec-t{color:var(--g2)}
         <b id="hdrTitle">A&N Agro</b>
         <small>للأسمدة الزراعية</small>
       </div>
+    </div>
+    <div class="quick-tools" id="quickTools" aria-label="مظهر وصوت">
+      <button type="button" id="btnThemeLight" title="نهاري" onclick="setTheme('light')">☀️</button>
+      <button type="button" id="btnThemeDark" title="ليلي" onclick="setTheme('dark')">🌙</button>
+      <button type="button" id="btnMute" title="كتم الصوت" onclick="toggleMute()">🔊</button>
     </div>
   </div>
 </header>
@@ -283,7 +434,10 @@ window.LOGO = EMBEDDED_LOGO;
 </script>
 <script>
 const OWNER_PHONE = '01092345910';
-const ADMIN_PASS = 'n910';
+let ADMIN_PASS = (function(){ try{ return localStorage.getItem('an_agro_pass') || 'n910'; }catch{ return 'n910'; } })();
+function getMuted(){ return !!(S?.settings?.muted); }
+function setMuted(v){ if(!S.settings) S.settings={}; S.settings.muted=!!v; try{ localStorage.setItem('an_agro_muted', v?'1':'0'); }catch{} save(); syncQuickTools(); toast(v?'تم كتم الصوت':'تم تشغيل الصوت'); }
+function toggleMute(){ setMuted(!getMuted()); }
 
 /* ===== STATE ===== */
 let S, doc=null, V='home', cart=[], msgs=[], cu=0, pq='', admin=false, tm;
@@ -301,6 +455,10 @@ const C = id => S.c.find(x=>x.id==id);
 const sold = (id,d) => S.s.filter(s=>s.d>=D(-d)).reduce((a,s)=>a+s.it.filter(i=>i.p==id).reduce((b,i)=>b+i.q,0),0);
 const prof = f => S.s.filter(s=>s.d>=f).reduce((a,s)=>a+s.it.reduce((b,i)=>b+(i.pr-i.co)*i.q,0),0);
 const tot = (f,t='9') => S.s.filter(s=>s.d>=f&&s.d<=t).reduce((a,s)=>a+s.t,0);
+const expTotal = (f,t='9') => (S.e||[]).filter(x=>x.d>=f&&x.d<=t).reduce((a,x)=>a+(+x.a||0),0);
+const netSales = (f,t='9') => tot(f,t) - expTotal(f,t);
+const netProfit = f => prof(f) - expTotal(f);
+
 function waPhone(ph){
   let d=String(ph||'').replace(/\D/g,'');
   if(!d) d=String(OWNER_PHONE).replace(/\D/g,'');
@@ -322,20 +480,51 @@ function toast(t, withSound){
   setTimeout(()=>e.style.display='none',2800);
   if(withSound!==false) playBeep();
 }
-function playBeep(){
+function playBeep(type){
+  if(getMuted()) return;
   try{
     const ctx=new (window.AudioContext||window.webkitAudioContext)();
     const o=ctx.createOscillator(), g=ctx.createGain();
-    o.type='sine'; o.frequency.value=880;
-    g.gain.value=0.04; o.connect(g); g.connect(ctx.destination);
-    o.start(); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+0.15);
-    o.stop(ctx.currentTime+0.16);
+    const t=type||'click';
+    if(t==='success'){ o.type='sine'; o.frequency.value=980; g.gain.value=0.05; }
+    else if(t==='warn'){ o.type='triangle'; o.frequency.value=420; g.gain.value=0.045; }
+    else if(t==='nav'){ o.type='sine'; o.frequency.value=660; g.gain.value=0.03; }
+    else { o.type='sine'; o.frequency.value=780; g.gain.value=0.035; }
+    o.connect(g); g.connect(ctx.destination);
+    o.start();
+    const dur=t==='success'?0.18:0.12;
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+dur);
+    o.stop(ctx.currentTime+dur+0.02);
   }catch{}
 }
+// أصوات عند الضغط على الأزرار
+document.addEventListener('click', function(ev){
+  const btn=ev.target.closest('button, .k, .home-btn, .menu-btn, .back-btn, #fabChat, .cal-cell:not(.empty)');
+  if(!btn) return;
+  if(btn.classList.contains('danger') || btn.classList.contains('bd')) playBeep('warn');
+  else if(btn.classList.contains('b') || btn.classList.contains('home-btn') || btn.id==='fabChat') playBeep('success');
+  else playBeep('click');
+}, true);
 function applyTheme(){
   const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'auto';
   const dark=mode==='dark'||(mode==='auto'&&matchMedia('(prefers-color-scheme:dark)').matches);
   document.documentElement.classList.toggle('dark', dark);
+  syncQuickTools();
+}
+function syncQuickTools(){
+  const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'auto';
+  const dark=document.documentElement.classList.contains('dark');
+  const bl=document.getElementById('btnThemeLight');
+  const bd=document.getElementById('btnThemeDark');
+  const bm=document.getElementById('btnMute');
+  if(bl) bl.classList.toggle('on', mode==='light' || (mode==='auto' && !dark));
+  if(bd) bd.classList.toggle('on', mode==='dark' || (mode==='auto' && dark));
+  if(bm){
+    const muted=getMuted();
+    bm.textContent=muted?'🔇':'🔊';
+    bm.classList.toggle('on', muted);
+    bm.title=muted?'تشغيل الصوت':'كتم الصوت';
+  }
 }
 function setTheme(mode){
   if(!S.settings) S.settings={};
@@ -362,12 +551,14 @@ function loadLocal(){
   try{
     const d=localStorage.getItem('an_agro_data');
     if(d){ const parsed=JSON.parse(d); if(parsed&&typeof parsed==='object') S=parsed; }
-    if(!S.settings) S.settings={showCost:false, theme:'auto'};
+    if(!S.settings) S.settings={showCost:false, theme:'auto', muted:false};
+  try{ if(localStorage.getItem('an_agro_muted')==='1') S.settings.muted=true; }catch{}
     if(!Array.isArray(S.p)) S.p=[];
     if(!Array.isArray(S.c)) S.c=[];
     if(!Array.isArray(S.s)) S.s=[];
     if(!Array.isArray(S.o)) S.o=[];
     if(!Array.isArray(S.inst)) S.inst=[];
+  if(!Array.isArray(S.e)) S.e=[];
     if(!Array.isArray(S.log)) S.log=[];
     const n=localStorage.getItem('an_agro_nav');
     if(n) navItems=JSON.parse(n);
@@ -382,7 +573,7 @@ function addLog(type, text, extra){
 
 /* ===== SEED ===== */
 function seed(){
-  return { p:[], c:[], s:[], o:[], inst:[], log:[], settings:{ showCost:false, theme:'auto' } };
+  return { p:[], c:[], s:[], o:[], e:[], inst:[], log:[], settings:{ showCost:false, theme:'auto' } };
 }
 
 const DEFAULT_NAV = [
@@ -393,6 +584,7 @@ const DEFAULT_NAV = [
   {id:'c',    ico:'👥', label:'العملاء'},
   {id:'o',    ico:'💬', label:'طلبات واتساب'},
   {id:'g',    ico:'🌾', label:'دليل المحاصيل'},
+  {id:'e',    ico:'💸', label:'المصروفات'},
   {id:'r',    ico:'📈', label:'التقارير'},
   {id:'a',    ico:'🤖', label:'المساعد الذكي'},
   {id:'admin',ico:'⚙️', label:'الإدارة'}
@@ -463,13 +655,23 @@ function vHome(){
   const low=S.p.filter(p=>p.q<=p.m);
   const dueSoon=getDueInstallments(3);
   const expiring=S.p.filter(p=>p.e&&dl(p.e)>=0&&dl(p.e)<=60);
+  const salesToday=tot(T,T), expToday=expTotal(T,T), netToday=salesToday-expToday;
+  const sales30=tot(D(-30)), exp30=expTotal(D(-30)), net30=sales30-exp30;
   return `
   <div class="hero">
     <img src="${LOGO}" alt="A&N Agro">
     <h2 onclick="askPass()">A&N Agro للأسمدة الزراعية</h2>
+    <div class="net-banner" onclick="go('e')" style="cursor:pointer" title="المصروفات والصافي">
+      <div><small>مبيعات اليوم</small><b>${M(salesToday)}</b></div>
+      <div><small>مصروفات اليوم</small><b class="nb-exp">${M(expToday)}</b></div>
+      <div><small>صافي اليوم</small><b class="nb-net">${M(netToday)}</b></div>
+    </div>
     <div class="top-actions">
       <button type="button" class="ta-prod" onclick="openAllProducts()">📦 المنتجات</button>
       <button type="button" class="ta-scan" onclick="identifyProduct()">📷 مسح باركود</button>
+    </div>
+    <div class="ta-search-wrap">
+      <button type="button" class="ta-search" onclick="openCustLookup()">🔍 بحث عميل — اسم / رقم</button>
     </div>
     ${admin?`<div class="admin-badge">وضع الإدارة مفعّل · <span onclick="lockAdmin()" style="cursor:pointer;text-decoration:underline">إغلاق</span></div>
     <div class="bar" style="justify-content:center;margin-top:10px">
@@ -479,25 +681,31 @@ function vHome(){
   </div>
   <div class="sec-t">🧾 المبيعات والتقارير</div>
   <div class="kg">
-    ${card('💵','مبيعات اليوم',M(tot(T,T)),'','showDaySales()')}
-    ${card('📅','مبيعات الشهر',M(tot(D(-30))),'','pickMonth()')}
-    ${card('🧾','المبيعات','فواتير','','go("s")')}
-    ${card('📊','تقرير يومي','واتساب','','dailyReport()')}
+    ${card('💵','مبيعات اليوم',M(salesToday),'c-sales','showDaySales()')}
+    ${card('📅','مبيعات الشهر',M(sales30),'c-sales','pickMonth()')}
+    ${card('🧾','المبيعات','فواتير','c-sales','go("s")')}
+    ${card('📊','تقرير يومي','واتساب','c-sales','dailyReport()')}
   </div>
   <div class="sec-t">📦 المخزن</div>
   <div class="kg">
-    ${card('⚠️','نواقص المخزن',N(low.length), low.length?'bd':'','showLowStock()')}
-    ${card('⏳','قرب انتهاء',N(expiring.length), expiring.length?'wa':'','showExpiring()')}
-    ${card('📋','سجل المخزن',N((S.log||[]).length),'','showStockLog()')}
-    ${card('💰','قيمة المخزون',M(S.p.reduce((a,p)=>a+p.q*p.co,0)),'','showStockValue()')}
+    ${card('⚠️','نواقص المخزن',N(low.length), low.length?'c-alert':'c-stock','showLowStock()')}
+    ${card('⏳','قرب انتهاء',N(expiring.length), expiring.length?'c-warn':'c-stock','showExpiring()')}
+    ${card('📋','سجل المخزن',N((S.log||[]).length),'c-stock','showStockLog()')}
+    ${card('💰','قيمة المخزون',M(S.p.reduce((a,p)=>a+p.q*p.co,0)),'c-stock','showStockValue()')}
   </div>
   <div class="sec-t">👥 العملاء والأرباح</div>
   <div class="kg">
-    ${card('👥','ديون العملاء',M(S.c.reduce((a,c)=>a+c.db,0)),'bd','go("c")')}
-    ${card('⏰','الأقساط',N(dueSoon.length)+(dueSoon.length?' قريبة':''), dueSoon.length?'wa':'','showDueSoon()')}
-    ${card('🔍','بحث عميل','اسم / رقم','','openCustLookup()')}
-    ${card('📈','أرباح 30 يوم',M(prof(D(-30))),'gd','showProfitPage()')}
+    ${card('👥','ديون العملاء',M(S.c.reduce((a,c)=>a+c.db,0)),'c-cust','go("c")')}
+    ${card('⏰','الأقساط',N(dueSoon.length)+(dueSoon.length?' قريبة':''), dueSoon.length?'c-warn':'c-cust','showDueSoon()')}
+    ${card('📈','أرباح 30 يوم',M(prof(D(-30))),'c-profit','showProfitPage()')}
+    ${card('💬','المساعد الذكي','اسأل A&N','c-profit','go("a")')}
   </div>
+  <div class="sec-t">💸 المصروفات والصافي</div>
+  <div class="kg">
+    ${card('💸','مصروفات اليوم',M(expToday),'c-exp','go("e")')}
+    ${card('📉','مصروفات 30 يوم',M(exp30),'c-exp','go("e")')}
+    ${card('✨','صافي اليوم',M(netToday),'c-net','go("e")')}
+    ${card('💎','صافي 30 يوم',M(net30),'c-net','go("e")')}
   </div>`;
 }
 function openAllProducts(){
@@ -558,15 +766,18 @@ function vp(){
   </div>`:`<div class="cd empty"><span>📦</span>لا منتجات مسجّلة بعد<br><button class="b" style="margin-top:12px" onclick="pform()">+ أضف أول منتج</button></div>`}`;
 }
 
-function form(t,f,v,cb){
+function form(t,f,v,cb,submitLabel){
   window._f=[f,cb];
+  const hasPass=f.some(x=>x[2]==='password');
+  const btnTxt=submitLabel || (hasPass?'دخول':'حفظ');
   $('#md').innerHTML=`<div class="mb"><div class="mc"><h3>${t}</h3>
     ${f.map(x=>`<label>${x[1]}<input id="f_${x[0]}" type="${x[2]||'text'}" value="${E(v[x[0]]??'')}" ${x[3]||''}></label>`).join('')}
     <div class="bar" style="margin-top:14px">
-      <button class="b" onclick="fsv()">حفظ</button>
+      <button class="b" onclick="fsv()">${btnTxt}</button>
       <button class="s" onclick="cm()">إلغاء</button>
     </div>
   </div></div>`;
+  setTimeout(()=>{ const inp=$('#f_'+f[0][0]); if(inp){ inp.focus(); if(hasPass) inp.select(); } },80);
 }
 function fsv(){
   const[f,cb]=window._f, o={};
@@ -1181,6 +1392,54 @@ const setDue=id=>form('موعد قسط: '+C(id).n,[['due','التاريخ','date
   C(id).due=v.due||null;
 });
 
+
+/* Expenses */
+function ve(){
+  if(!Array.isArray(S.e)) S.e=[];
+  const list=S.e.slice().sort((a,b)=>(b.d||'').localeCompare(a.d||'')||(b.id-a.id));
+  const tExp=expTotal(T,T), tSales=tot(T,T), nToday=tSales-tExp;
+  const e30=expTotal(D(-30)), s30=tot(D(-30)), n30=s30-e30;
+  return `
+  <h1>💸 المصروفات</h1>
+  <div class="kg">
+    ${card('💵','مبيعات اليوم',M(tSales),'c-sales','',true)}
+    ${card('💸','مصروفات اليوم',M(tExp),'c-exp','',true)}
+    ${card('✨','صافي اليوم',M(nToday),'c-net','',true)}
+    ${card('💎','صافي 30 يوم',M(n30),'c-net','',true)}
+  </div>
+  <div class="cd" style="border-color:var(--gold);background:linear-gradient(135deg,rgba(201,162,39,.08),transparent)">
+    <p style="font-size:14px;line-height:1.8">الصافي = <b>المبيعات − المصروفات</b><br>
+    اليوم: <b class="ok">${M(nToday)}</b> · آخر 30 يوم: <b class="ok">${M(n30)}</b></p>
+  </div>
+  <div class="bar"><button class="b" onclick="eform()">+ إضافة مصروف</button></div>
+  <div class="cd tw"><table>
+    <tr><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th></th></tr>
+    ${list.length?list.map(x=>`<tr>
+      <td>${E(x.d)}</td>
+      <td>${E(x.n||'-')}${x.cat?`<br><small>${E(x.cat)}</small>`:''}</td>
+      <td class="r">${M(x.a)}</td>
+      <td><button class="s danger" onclick="delExp(${x.id})">حذف</button></td>
+    </tr>`).join(''):'<tr><td colspan="4" class="empty">لا مصروفات مسجّلة</td></tr>'}
+  </table></div>`;
+}
+const eform=()=>form('مصروف جديد',[
+  ['a','المبلغ','number'],
+  ['n','البيان / السبب'],
+  ['cat','التصنيف (اختياري)'],
+  ['d','التاريخ','date']
+],{a:'',n:'',cat:'',d:T},v=>{
+  if(!v.a||+v.a<=0){ toast('أدخل مبلغاً صحيحاً'); return 1; }
+  if(!Array.isArray(S.e)) S.e=[];
+  const id=(S.e.length?Math.max(...S.e.map(x=>x.id)):0)+1;
+  S.e.push({id,a:+v.a,n:(v.n||'').trim(),cat:(v.cat||'').trim(),d:v.d||T});
+  toast('تم تسجيل المصروف · صافي اليوم: '+M(netSales(T,T)));
+});
+function delExp(id){
+  if(!confirm('حذف هذا المصروف؟')) return;
+  S.e=(S.e||[]).filter(x=>x.id!=id);
+  save(); toast('تم الحذف'); vw();
+}
+
 /* Orders */
 function vo(){
   const st=['جديد','قيد التجهيز','تم التسليم'];
@@ -1228,6 +1487,9 @@ function vr(){
     ${card('📈','أرباح 7 أيام',M(prof(D(-7))),'gd','',true)}
     ${card('📈','أرباح 30 يوم',M(prof(D(-30))),'gd','',true)}
     ${card('💵','مبيعات 30 يوم',M(tot(D(-30))),'','',true)}
+    ${card('💸','مصروفات 30 يوم',M(expTotal(D(-30))),'','',true)}
+    ${card('✨','صافي المبيعات 30',M(netSales(D(-30))),'gd','',true)}
+    ${card('💎','صافي الربح 30',M(netProfit(D(-30))),'gd','',true)}
   </div>
   <div class="bar"><button class="b" onclick="xl()">⬇️ تصدير Excel</button></div>
   <div class="cd tw"><table>
@@ -1245,14 +1507,22 @@ async function xl(){
   A('المنتجات',[['الاسم','النوع','الباركود','التكلفة','السعر','الكمية','الوحدة','الصلاحية'],...S.p.map(p=>[p.n,p.t,p.b,p.co,p.pr,p.q,p.unit,p.e])]);
   A('المبيعات',[['رقم','التاريخ','العميل','الإجمالي','المدفوع','الربح'],...S.s.map(s=>[s.id,s.d,C(s.c)?.n||'نقدي',s.t,s.pd,s.it.reduce((a,i)=>a+(i.pr-i.co)*i.q,0)])]);
   A('العملاء',[['الاسم','الهاتف','المديونية','موعد القسط'],...S.c.map(c=>[c.n,c.ph,c.db,c.due||''])]);
+  A('المصروفات',[['التاريخ','البيان','التصنيف','المبلغ'],...(S.e||[]).map(x=>[x.d,x.n,x.cat||'',x.a])]);
   const blob=new Blob([XLSX.write(wb,{bookType:'xlsx',type:'array'})],{type:'application/octet-stream'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='AN-Agro-report.xlsx'; a.click();
   toast('تم التصدير');
 }
 
 /* Chat */
-const SYS='أنت «مساعد A&N» الذكي لمحل مبيدات وأسمدة زراعية في مصر. اتكلم بالعامية المصرية بأسلوب ذكي وودود ومختصر. للأسعار والمخزون والمبيعات اعتمد على بيانات المحل فقط. لخطط زيادة الأرباح قدّم خطوات عملية. للاستشارات الزراعية انصح وربط بمنتجات المحل، وذكّر بالالتزام بجرعات الملصق.';
-const ctx=()=>({اليوم:T,منتجات:S.p.map(p=>({اسم:p.n,نوع:p.t,وحدة:p.unit,سعر_بيع:p.pr,تكلفة:p.co,مخزون:p.q,حد_أدنى:p.m,مباع_30_يوم:sold(p.id,30),أيام_للانتهاء:p.e?dl(p.e):null})),مبيعات_30_يوم:tot(D(-30)),أرباح_30_يوم:prof(D(-30)),عملاء_عليهم_ديون:S.c.filter(c=>c.db).map(c=>[c.n,c.db])});
+const SYS=`أنت «مساعد A&N» — مستشار أعمال زراعي ذكي لمحل مبيدات وأسمدة في مصر.
+اتكلم بالعامية المصرية بأسلوب ذكي وودود وواضح، مش طويل زيادة.
+قواعد صارمة:
+1) الأسعار والمخزون والمبيعات والأرباح = من بيانات المحل فقط، متخترعش أرقام.
+2) لما يسأل عن زيادة الربح: حلل البيانات (هامش ربح الأصناف، سرعة الدوران، النواقص، الديون، قرب الصلاحية، موسمية المحاصيل في مصر) وقدّم خطة عملية مرتبة بأولويات: ماذا يفعل اليوم / هذا الأسبوع / هذا الشهر.
+3) أفكار متقدمة ممكنة: تسعير ذكي حسب الهامش والطلب، عروض على قرب الانتهاء، ربط سماد+مبيد كباقة، تحصيل أقساط قبل التوريد الجديد، التركيز على الأصناف سريعة الدوران، تنبيهات واتساب للعملاء المدينين، شراء موسمي قبل ارتفاع الأسعار.
+4) للاستشارات الزراعية: انصح وربط بمنتجات المحل إن وجدت، وذكّر دائماً بالالتزام بجرعات الملصق واستشارة مهندس زراعي.
+5) لو البيانات ناقصة، قول إيه ناقص واقترح إزاي يتسجل عشان التحليل يبقى أدق.`;
+const ctx=()=>({اليوم:T,منتجات:S.p.map(p=>({اسم:p.n,نوع:p.t,وحدة:p.unit,سعر_بيع:p.pr,تكلفة:p.co,مخزون:p.q,حد_أدنى:p.m,مباع_30_يوم:sold(p.id,30),أيام_للانتهاء:p.e?dl(p.e):null})),مبيعات_30_يوم:tot(D(-30)),مصروفات_30_يوم:expTotal(D(-30)),صافي_المبيعات_30:netSales(D(-30)),أرباح_30_يوم:prof(D(-30)),صافي_الربح_30:netProfit(D(-30)),عملاء_عليهم_ديون:S.c.filter(c=>c.db).map(c=>[c.n,c.db])});
 const fmt=s=>E(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
 function vc(){
   return `<div class="cd chat">
@@ -1268,16 +1538,48 @@ function localAssist(q){
   const low=S.p.filter(p=>p.q<=p.m);
   const due=getDueInstallments(3);
   const todaySales=tot(T,T);
-  // product price
+  const debt=S.c.reduce((a,c)=>a+(c.db||0),0);
+  const p30=prof(D(-30)), p7=prof(D(-7));
+  const ranked=S.p.map(p=>{
+    const q30=sold(p.id,30);
+    const margin=p.pr>0?((p.pr-p.co)/p.pr*100):0;
+    const profit30=q30*(p.pr-p.co);
+    return {p,q30,margin,profit30};
+  }).sort((a,b)=>b.profit30-a.profit30);
   const hit=S.p.find(p=>qq.includes((p.n||'').toLowerCase())||(p.n&&q.includes(p.n)));
-  if(hit) return `المنتج: ${hit.n}\nسعر البيع: ${M(hit.pr)}\nسعر الشراء: ${M(hit.co)}\nالمخزون: ${N(hit.q)} ${hit.unit||''}\nالحد الأدنى: ${N(hit.m)}\n${hit.e?'الصلاحية: '+hit.e:''}`;
-  if(/مبيع|بيع اليوم|تحصيل/.test(q)) return `مبيعات اليوم (${T}): ${M(todaySales)}\nعدد الفواتير: ${S.s.filter(s=>s.d===T).length}\nأرباح تقريبية اليوم: ${M(S.s.filter(s=>s.d===T).reduce((a,s)=>a+s.it.reduce((b,i)=>b+(i.pr-i.co)*i.q,0),0))}`;
-  if(/ربح|أرباح/.test(q)) return `أرباح آخر 30 يوم: ${M(prof(D(-30)))}\nأرباح آخر 7 أيام: ${M(prof(D(-7)))}`;
+  if(hit){
+    const q30=sold(hit.id,30);
+    const margin=hit.pr>0?Math.round((hit.pr-hit.co)/hit.pr*100):0;
+    return `📦 ${hit.n}\nسعر البيع: ${M(hit.pr)} · التكلفة: ${M(hit.co)} · الهامش: ${margin}%\nالمخزون: ${N(hit.q)} ${hit.unit||''} (الحد ${N(hit.m)})\nمباع آخر 30 يوم: ${N(q30)}\n${hit.e?'الصلاحية: '+hit.e+' ('+dl(hit.e)+' يوم)':''}`;
+  }
+  if(/مبيع|بيع اليوم|تحصيل|صافي|مصروف/.test(q)) return `مبيعات اليوم (${T}): ${M(todaySales)}\nمصروفات اليوم: ${M(expTotal(T,T))}\nصافي اليوم: ${M(netSales(T,T))}\nعدد الفواتير: ${S.s.filter(s=>s.d===T).length}\nأرباح تقريبية اليوم: ${M(S.s.filter(s=>s.d===T).reduce((a,s)=>a+s.it.reduce((b,i)=>b+(i.pr-i.co)*i.q,0),0))}`;
   if(/نقص|نواقص|مخزن/.test(q)) return low.length?('النواقص:\n'+low.map(p=>`• ${p.n}: ${N(p.q)} (الحد ${N(p.m)})`).join('\n')):'لا توجد نواقص حالياً.';
-  if(/قسط|أقساط|مديون/.test(q)) return due.length?('أقساط قريبة:\n'+due.map(x=>`• ${(C(x.custId)?.n)||'عميل'}: ${M(x.amount)} يوم ${x.due}`).join('\n')):`لا أقساط خلال 3 أيام.\nإجمالي ديون العملاء: ${M(S.c.reduce((a,c)=>a+(c.db||0),0))}`;
-  if(/منتج|أصناف|قائمة/.test(q)) return S.p.length?('المنتجات المسجّلة:\n'+S.p.slice(0,15).map(p=>`• ${p.n} — ${M(p.pr)} — مخزون ${N(p.q)}`).join('\n')):'لا منتجات مسجّلة بعد.';
-  if(/عميل|عملاء/.test(q)) return S.c.length?('العملاء:\n'+S.c.slice(0,12).map(c=>`• ${c.n} — ${c.ph||'—'} — مديونية ${M(c.db||0)}`).join('\n')):'لا عملاء بعد.';
-  return `أنا مساعد A&N Agro. أقدر أجاوب عن:\n• أسعار ومخزون منتج معيّن (اكتب اسمه)\n• مبيعات اليوم والأرباح\n• النواقص والأقساط\n• قائمة المنتجات أو العملاء\n\nملخص سريع:\nمبيعات اليوم: ${M(todaySales)}\nمنتجات: ${S.p.length} · عملاء: ${S.c.length}\nنواقص: ${low.length} · أقساط قريبة: ${due.length}`;
+  if(/قسط|أقساط|مديون/.test(q)) return due.length?('أقساط قريبة:\n'+due.map(x=>`• ${(C(x.custId)?.n)||'عميل'}: ${M(x.amount)} يوم ${x.due}`).join('\n'))+`\nإجمالي الديون: ${M(debt)}`:`لا أقساط خلال 3 أيام.\nإجمالي ديون العملاء: ${M(debt)}`;
+  if(/منتج|أصناف|قائمة/.test(q) && !/ربح|أرباح|زود|أعلى|ازاي|إزاي|خطة/.test(q)) return S.p.length?('المنتجات المسجّلة:\n'+S.p.slice(0,15).map(p=>`• ${p.n} — ${M(p.pr)} — مخزون ${N(p.q)}`).join('\n')):'لا منتجات مسجّلة بعد.';
+  if(/عميل|عملاء/.test(q) && !/ربح|أرباح|زود|خطة/.test(q)) return S.c.length?('العملاء:\n'+S.c.slice(0,12).map(c=>`• ${c.n} — ${c.ph||'—'} — مديونية ${M(c.db||0)}`).join('\n')):'لا عملاء بعد.';
+  // خطة زيادة الأرباح — تحليل ذكي من بيانات المحل
+  if(/ربح|أرباح|زود|أعلى|ازاي|إزاي|خطة|مكسب|هامش|تسويق|بيع أكتر|ازود/.test(q)){
+    const top=ranked.filter(x=>x.profit30>0).slice(0,5);
+    const slow=ranked.filter(x=>x.p.q>x.p.m && x.q30===0).slice(0,5);
+    const lowMargin=ranked.filter(x=>x.margin>0 && x.margin<15 && x.q30>0).slice(0,4);
+    const exp=S.p.filter(p=>p.e&&dl(p.e)>=0&&dl(p.e)<=45).sort((a,b)=>dl(a.e)-dl(b.e)).slice(0,5);
+    let out=`📈 خطة عملية لزيادة أرباح A&N Agro\n\nالوضع الحالي:\n• أرباح 30 يوم: ${M(p30)} · آخر 7 أيام: ${M(p7)}\n• مبيعات اليوم: ${M(todaySales)}\n• ديون العملاء: ${M(debt)}\n• نواقص: ${low.length} · أقساط قريبة: ${due.length}\n\n`;
+    out+='① اعمل النهارده:\n';
+    if(due.length) out+=`• حصّل الأقساط القريبة (${due.length}) — فلوس جاهزة من غير ما تشتري مخزون جديد.\n`;
+    if(low.length) out+=`• ورّد النواقص: ${low.slice(0,4).map(p=>p.n).join('، ')} عشان متخسرش بيع.\n`;
+    if(exp.length) out+=`• اعرض خصم سريع على قرب الانتهاء: ${exp.slice(0,3).map(p=>p.n+' ('+dl(p.e)+' يوم)').join('، ')}.\n`;
+    if(!due.length && !low.length && !exp.length) out+='• راجع فواتير اليوم وركّز على إضافة صنف مكمل لكل فاتورة (upsell).\n';
+    out+='\n② هذا الأسبوع:\n';
+    if(top.length) out+=`• ركّز ترويج على أعلى ربح: ${top.slice(0,3).map(x=>x.p.n+' (~'+M(x.profit30)+')').join('، ')}.\n`;
+    if(lowMargin.length) out+=`• راجع تسعير الهامش الضعيف: ${lowMargin.map(x=>x.p.n+' ('+Math.round(x.margin)+'%)').join('، ')} — زوّد السعر شوية أو اعمل باقة.\n`;
+    if(slow.length) out+=`• أصناف راكدة (مخزون ومفيش بيع 30 يوم): ${slow.map(x=>x.p.n).join('، ')} — عرض أو اربطها ببيع صنف سريع.\n`;
+    out+='• ابعت واتساب تذكير للعملاء اللي عليهم مديونية.\n';
+    out+='\n③ هذا الشهر:\n• اعمل باقات (سماد + مبيد) بهامش أوضح من البيع المنفصل.\n• قبل الموسم اشترِ الأصناف سريعة الدوران بكميات أحسن عشان سعر الشراء.\n• متكدّسش أصناف بطيئة — رأس المال أحسن في اللي بيتحرك.\n';
+    if(!S.p.length) out+='\n⚠️ سجّل المنتجات والمبيعات الأول عشان التحليل يبقى أدق.';
+    return out;
+  }
+  if(/ربح|أرباح/.test(q)) return `أرباح آخر 30 يوم: ${M(p30)}\nأرباح آخر 7 أيام: ${M(p7)}`;
+  return `أنا مساعد A&N Agro 🌱\nأقدر أجاوب عن الأسعار والمخزون والأرباح، وأعمللك خطة عملية تزود بيها المكسب من بيانات محلك.\n\nملخص سريع:\nمبيعات اليوم: ${M(todaySales)}\nأرباح 30 يوم: ${M(p30)}\nمنتجات: ${S.p.length} · عملاء: ${S.c.length}\nنواقص: ${low.length} · أقساط قريبة: ${due.length} · ديون: ${M(debt)}\n\nجرّب تسأل: «اعمللي خطة أزود بيها الأرباح»`;
 }
 async function ask(q){
   q=q||$('#ci')?.value.trim(); if(!q) return;
@@ -1322,11 +1624,19 @@ function vAdmin(){
       <input type="checkbox" ${S.settings?.showCost?'checked':''} onchange="S.settings.showCost=this.checked;save()">
       إظهار التكلفة والربح في الفواتير
     </label>
+    <label style="display:block;margin-top:12px">الصوت</label>
+    <div class="bar">
+      <button class="s ${getMuted()?'b':''}" onclick="toggleMute()">${getMuted()?'🔇 الصوت مكتوم':'🔊 كتم الصوت'}</button>
+    </div>
     <label style="display:block;margin-top:12px">المظهر</label>
     <div class="bar">
       <button class="s ${(S.settings?.theme||'auto')==='auto'?'b':''}" onclick="setTheme('auto')">تلقائي</button>
       <button class="s ${(S.settings?.theme||'')==='light'?'b':''}" onclick="setTheme('light')">نهاري</button>
       <button class="s ${(S.settings?.theme||'')==='dark'?'b':''}" onclick="setTheme('dark')">ليلي</button>
+    </div>
+    <label style="display:block;margin-top:12px">كلمة مرور الإدارة</label>
+    <div class="bar">
+      <button class="s" onclick="changeAdminPass()">🔑 تغيير كلمة المرور</button>
     </div>
     <div class="bar" style="margin-top:12px">
       <button class="b" onclick="saveHtmlFile()">💾 حفظ الملف</button>
@@ -1339,6 +1649,20 @@ function vAdmin(){
     <p>${OWNER_PHONE}</p>
     <a class="b" target="_blank" href="${wa(OWNER_PHONE,'')}">فتح واتساب</a>
   </div>`;
+}
+function changeAdminPass(){
+  form('تغيير كلمة مرور الإدارة',[
+    ['old','كلمة المرور الحالية','password'],
+    ['n1','كلمة المرور الجديدة','password'],
+    ['n2','تأكيد كلمة المرور الجديدة','password']
+  ],{old:'',n1:'',n2:''},v=>{
+    if(v.old!==ADMIN_PASS){ toast('كلمة المرور الحالية غير صحيحة'); return 1; }
+    if(!v.n1 || v.n1.length<3){ toast('الكلمة الجديدة قصيرة جداً (3 أحرف على الأقل)'); return 1; }
+    if(v.n1!==v.n2){ toast('التأكيد غير متطابق'); return 1; }
+    ADMIN_PASS=v.n1;
+    try{ localStorage.setItem('an_agro_pass', ADMIN_PASS); }catch{}
+    toast('تم تغيير كلمة المرور');
+  },'تغيير');
 }
 function saveHtmlFile(){
   try{
@@ -1813,9 +2137,16 @@ async function expiringPdf(){
 /* الأرباح */
 function showProfitPage(){ openPage('📈 الأرباح',()=>{
   const p30=prof(D(-30)), p7=prof(D(-7)), p1=S.s.filter(s=>s.d===T).reduce((a,s)=>a+s.it.reduce((b,i)=>b+(i.pr-i.co)*i.q,0),0);
-  return `<div class="cd"><p style="padding:6px 0">اليوم: <b class="ok">${M(p1)}</b></p>
-    <p style="padding:6px 0">آخر 7 أيام: <b class="ok">${M(p7)}</b></p>
-    <p style="padding:6px 0">آخر 30 يوم: <b class="ok">${M(p30)}</b></p></div>`; }); }
+  const e1=expTotal(T,T), e7=expTotal(D(-7)), e30=expTotal(D(-30));
+  return `<div class="cd">
+    <p style="padding:6px 0">ربح اليوم (قبل المصروفات): <b class="ok">${M(p1)}</b></p>
+    <p style="padding:6px 0">مصروفات اليوم: <b class="r">${M(e1)}</b></p>
+    <p style="padding:6px 0">صافي اليوم: <b class="ok">${M(p1-e1)}</b></p>
+    <hr style="border:0;border-top:1px solid var(--bd);margin:10px 0">
+    <p style="padding:6px 0">أرباح 7 أيام: <b class="ok">${M(p7)}</b> − مصروفات ${M(e7)} = <b>${M(p7-e7)}</b></p>
+    <p style="padding:6px 0">أرباح 30 يوم: <b class="ok">${M(p30)}</b> − مصروفات ${M(e30)} = <b>${M(p30-e30)}</b></p>
+  </div>
+  <div class="bar"><button class="b" onclick="go('e')">إدارة المصروفات</button></div>`; }); }
 
 /* قيمة المخزون */
 function showStockValue(){ openPage('💰 قيمة المخزون',()=>{
@@ -1898,22 +2229,37 @@ function instCalHtml(){
   const {y,m}=_cal, dueSoon=getDueInstallments(3);
   if(!Array.isArray(S.inst)) S.inst=[];
   const byDate={};
-  S.inst.filter(x=>!x.paid).forEach(x=>{ (byDate[x.due]=byDate[x.due]||[]).push(x); });
-  const first=new Date(y,m,1), dim=new Date(y,m+1,0).getDate(), startDow=(first.getDay()+6)%7;
+  S.inst.filter(x=>!x.paid && x.due).forEach(x=>{ (byDate[x.due]=byDate[x.due]||[]).push(x); });
+  const first=new Date(y,m,1), dim=new Date(y,m+1,0).getDate();
+  // أسبوع يبدأ الاثنين: 0=ن ... 6=ح
+  const startDow=(first.getDay()+6)%7;
   const monthName=first.toLocaleDateString('ar-EG',{month:'long',year:'numeric'});
   let cells='';
   for(let i=0;i<startDow;i++) cells+='<div class="cal-cell empty"></div>';
   for(let d=1;d<=dim;d++){
     const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const has=byDate[ds]?.length||0, soon=has&&dl(ds)<=3&&dl(ds)>=0;
-    cells+=`<button type="button" class="cal-cell ${has?'has':''} ${ds===T?'today':''} ${soon?'soon':''}" onclick="showDayInst('${ds}')"><span class="d">${d}</span>${has?`<span class="dot">${has}</span>`:''}</button>`;
+    const has=byDate[ds]?.length||0;
+    const daysLeft=dl(ds);
+    const soon=has && daysLeft<=3 && daysLeft>=0;
+    const overdue=has && daysLeft<0;
+    cells+=`<button type="button" class="cal-cell ${has?'has':''} ${ds===T?'today':''} ${soon||overdue?'soon':''}" onclick="showDayInst('${ds}')"><span class="d">${d}</span>${has?`<span class="dot">${has}</span>`:''}</button>`;
   }
+  // أكمل الصف الأخير لـ 7 أعمدة
+  const totalCells=startDow+dim;
+  const pad=(7-(totalCells%7))%7;
+  for(let i=0;i<pad;i++) cells+='<div class="cal-cell empty"></div>';
   return `<div class="cd">
-    <div class="bar" style="justify-content:space-between;margin-bottom:8px">
-      <button class="s" onclick="renderInstCalendar(${m===0?y-1:y},${m===0?11:m-1})">›</button><b>${monthName}</b>
-      <button class="s" onclick="renderInstCalendar(${m===11?y+1:y},${m===11?0:m+1})">‹</button></div>
-    <div class="cal-grid-head"><span>ن</span><span>ث</span><span>ر</span><span>خ</span><span>ج</span><span>س</span><span>ح</span></div>
-    <div class="cal-grid">${cells}</div></div>
+    <div class="cal-nav">
+      <button class="s" type="button" onclick="renderInstCalendar(${m===11?y+1:y},${m===11?0:m+1})">الشهر التالي ‹</button>
+      <b>${monthName}</b>
+      <button class="s" type="button" onclick="renderInstCalendar(${m===0?y-1:y},${m===0?11:m-1})">› الشهر السابق</button>
+    </div>
+    <div class="cal-wrap">
+      <div class="cal-grid-head"><span>ن</span><span>ث</span><span>ر</span><span>خ</span><span>ج</span><span>س</span><span>ح</span></div>
+      <div class="cal-grid">${cells}</div>
+    </div>
+    <p style="font-size:11px;color:var(--mut);margin-top:8px;text-align:center">ن=الاثنين · اضغط على يوم لعرض أقساطه</p>
+  </div>
   <div class="cd"><h3 style="margin-bottom:6px">أقساط خلال 3 أيام</h3><div id="dayInstList">
     ${dueSoon.length?dueSoon.map(x=>{ const cust=C(x.custId);
       return `<p style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--bd)">
@@ -1931,17 +2277,20 @@ function dailyData(){
   const total=sales.reduce((a,s)=>a+s.t,0);
   const profit=sales.reduce((a,s)=>a+s.it.reduce((b,i)=>b+(i.pr-i.co)*i.q,0),0);
   const cash=sales.reduce((a,s)=>a+s.pd,0);
-  return {sales,total,profit,cash,due:getDueInstallments(3),low:S.p.filter(p=>p.q<=p.m)};
+  const expenses=expTotal(T,T);
+  const net=total-expenses;
+  return {sales,total,profit,cash,expenses,net,due:getDueInstallments(3),low:S.p.filter(p=>p.q<=p.m)};
 }
 function dailyReport(){ openPage('📊 التقرير اليومي — '+T,()=>{
   const d=dailyData();
   return `<div class="pgb"><button class="b" onclick="dailyReportWa()">📤 واتساب (نص)</button><button class="b" onclick="dailyReportPdf()">🖨️ PDF</button></div>
   <div class="kg">${card('💵','مبيعات اليوم',M(d.total),'','',true)}${card('📈','الربح التقريبي',M(d.profit),'gd','',true)}
-    ${card('🧾','عدد الفواتير',N(d.sales.length),'','',true)}${card('💰','المحصل',M(d.cash),'','',true)}</div>
+    ${card('🧾','عدد الفواتير',N(d.sales.length),'','',true)}${card('💰','المحصل',M(d.cash),'','',true)}
+    ${card('💸','مصروفات اليوم',M(d.expenses),'','',true)}${card('✨','صافي اليوم',M(d.net),'gd','',true)}</div>
   <div class="cd"><p>أقساط قريبة (3 أيام): <b>${N(d.due.length)}</b></p><p>نواقص المخزن: <b class="${d.low.length?'r':''}">${N(d.low.length)}</b></p></div>`; }); }
 function dailyReportWa(){
   const d=dailyData();
-  const txt=`تقرير A&N Agro — ${T}\n────────────\nمبيعات اليوم: ${M(d.total)}\nعدد الفواتير: ${d.sales.length}\nالربح التقريبي: ${M(d.profit)}\nالمحصل كاش/مقدم: ${M(d.cash)}\nأقساط قريبة (3 أيام): ${d.due.length}\nنواقص المخزن: ${d.low.length}\n────────────\n${d.due.slice(0,5).map(x=>`• ${(C(x.custId)?.n)||'عميل'} — ${M(x.amount)} يوم ${x.due}`).join('\n')}\n${d.low.slice(0,5).map(p=>`• ناقص: ${p.n} (${N(p.q)})`).join('\n')}`;
+  const txt=`تقرير A&N Agro — ${T}\n────────────\nمبيعات اليوم: ${M(d.total)}\nمصروفات اليوم: ${M(d.expenses)}\nصافي اليوم: ${M(d.net)}\nعدد الفواتير: ${d.sales.length}\nالربح التقريبي: ${M(d.profit)}\nالمحصل كاش/مقدم: ${M(d.cash)}\nأقساط قريبة (3 أيام): ${d.due.length}\nنواقص المخزن: ${d.low.length}\n────────────\n${d.due.slice(0,5).map(x=>`• ${(C(x.custId)?.n)||'عميل'} — ${M(x.amount)} يوم ${x.due}`).join('\n')}\n${d.low.slice(0,5).map(p=>`• ناقص: ${p.n} (${N(p.q)})`).join('\n')}`;
   openWa(OWNER_PHONE,txt);
 }
 async function dailyReportPdf(){
@@ -1963,7 +2312,7 @@ function showStockLog(){ openPage('📋 سجل حركات المخزن',()=>{
 
 /* Router */
 const VIEWS={
-  home:vHome, pg:vPg, p:vp, s:vs, c:vcu, o:vo, g:vg, r:vr, a:vc, admin:vAdmin
+  home:vHome, pg:vPg, p:vp, s:vs, c:vcu, o:vo, e:ve, g:vg, r:vr, a:vc, admin:vAdmin
 };
 function vw(){
   const fn=VIEWS[V]||vHome;
@@ -1980,13 +2329,30 @@ function vw(){
     $('#hdrLogo').src=window.LOGO;
   }
 
-  let p=0, ok=0;
+  let p=0, ok=0, done=false;
+  const setProgress=(v)=>{
+    p=Math.max(p, Math.min(100, v));
+    const bar=$('#pb'), pt=$('#pt');
+    if(bar) bar.style.width=p+'%';
+    if(pt) pt.textContent=Math.floor(p)+'%';
+    if(p>=100 && ok && !done){
+      done=true;
+      clearInterval(iv);
+      setTimeout(()=>$('#sp').classList.add('h'),350);
+    }
+  };
   const iv=setInterval(()=>{
-    p=Math.min(p+(ok?10:p<80?4:.4),100);
-    $('#pb').style.width=p+'%';
-    $('#pt').textContent=Math.floor(p)+'%';
-    if(p>=100){ clearInterval(iv); setTimeout(()=>$('#sp').classList.add('h'),300); }
-  },50);
+    // شريط يتقدم بسلاسة حتى 92% أثناء التحميل، ثم يكمل لـ 100% عند الجاهزية
+    if(!ok){
+      if(p<60) setProgress(p+3.2);
+      else if(p<85) setProgress(p+1.4);
+      else if(p<92) setProgress(p+0.35);
+    } else {
+      setProgress(p+8);
+    }
+  },40);
+  // ضمان الوصول لـ 100% حتى لو حصل تأخير
+  setTimeout(()=>{ ok=1; setProgress(100); }, 4500);
 
   S=seed();
   navItems=JSON.parse(JSON.stringify(DEFAULT_NAV));
@@ -2043,7 +2409,7 @@ function vw(){
       }
     }
   }catch{}
-  ok=1; renderNav(); vw();
+  ok=1; setProgress(100); renderNav(); vw();
 })();
 </script>
 </body>
