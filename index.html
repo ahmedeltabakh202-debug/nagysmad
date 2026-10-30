@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
@@ -61,9 +61,46 @@ header .quick-tools button.on{background:rgba(201,162,39,.95);color:#1a1408}
 .menu-btn.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .menu-btn.open span:nth-child(2){opacity:0}
 .menu-btn.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-/* Home PIP — circular floating bubble */
-.home-btn{width:60px;height:60px;border:3px solid #fff;border-radius:50%;background:linear-gradient(145deg,#22a35a,#0f5132);color:#fff;font:800 24px Cairo;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(15,81,50,.45),0 0 0 1px rgba(15,81,50,.12);position:relative;top:-16px}
-.home-btn:active{transform:scale(.9)}
+/* Home — premium floating house button */
+.home-btn{
+  width:64px;height:64px;border:0;padding:0;cursor:pointer;
+  background:transparent;position:relative;top:-22px;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.home-btn .hb-ring{
+  width:64px;height:64px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:
+    linear-gradient(145deg,#e8c547 0%,#c9a227 40%,#a8861c 100%);
+  padding:3px;
+  box-shadow:
+    0 10px 28px rgba(15,81,50,.42),
+    0 2px 6px rgba(0,0,0,.18),
+    0 0 0 1px rgba(201,162,39,.25);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.home-btn .hb-core{
+  width:100%;height:100%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#1a9a55 0%,#0f5132 55%,#0a3a24 100%);
+  box-shadow:inset 0 2px 4px rgba(255,255,255,.18), inset 0 -3px 8px rgba(0,0,0,.25);
+  position:relative;overflow:hidden;
+}
+.home-btn .hb-core::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 35% 28%, rgba(255,255,255,.22), transparent 55%);
+  pointer-events:none;
+}
+.home-btn .hb-core svg{
+  width:28px;height:28px;display:block;position:relative;z-index:1;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));
+}
+.home-btn:active .hb-ring{
+  transform:scale(.92);
+  box-shadow:0 4px 14px rgba(15,81,50,.35),0 1px 3px rgba(0,0,0,.2);
+}
+.home-btn:active .hb-core{filter:brightness(.96)}
 /* Back — clean chip */
 .back-btn{height:38px;padding:0 16px 0 12px;border:0;border-radius:20px;background:#13241c;color:#f0f7f3;font:700 13px Cairo;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .back-btn::before{content:'→';font-size:15px;opacity:.85;line-height:1}
@@ -364,10 +401,6 @@ header{
   box-shadow:0 4px 20px rgba(0,0,0,.25);
 }
 header .brand img{box-shadow:0 2px 10px rgba(0,0,0,.25)}
-.home-btn{
-  background:linear-gradient(145deg,#2bb86a,#0f5132);
-  box-shadow:0 10px 28px rgba(15,81,50,.5),0 0 0 3px rgba(201,162,39,.25);
-}
 #fabChat{
   background:linear-gradient(135deg,#e8c547,#b8962a);
   box-shadow:0 12px 32px rgba(184,150,42,.5),0 2px 8px rgba(0,0,0,.15);
@@ -416,7 +449,7 @@ header .brand img{box-shadow:0 2px 10px rgba(0,0,0,.25)}
     </button>
   </div>
   <div class="bot-center">
-    <button class="home-btn" onclick="go('home')" aria-label="الرئيسية">🏠</button>
+    <button class="home-btn" onclick="go('home')" aria-label="الرئيسية"><span class="hb-ring"><span class="hb-core"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.5 10.8L12 4.5l7.5 6.3V19a1.5 1.5 0 0 1-1.5 1.5h-3.75v-5.25h-4.5V20.5H6A1.5 1.5 0 0 1 4.5 19v-8.2z" fill="#fff" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg></span></span></button>
   </div>
   <div class="bot-right">
     <button class="back-btn" onclick="goBack()" aria-label="رجوع">رجوع</button>
@@ -506,13 +539,13 @@ document.addEventListener('click', function(ev){
   else playBeep('click');
 }, true);
 function applyTheme(){
-  const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'auto';
+  const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'dark';
   const dark=mode==='dark'||(mode==='auto'&&matchMedia('(prefers-color-scheme:dark)').matches);
   document.documentElement.classList.toggle('dark', dark);
   syncQuickTools();
 }
 function syncQuickTools(){
-  const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'auto';
+  const mode=S?.settings?.theme||localStorage.getItem('an_theme')||'dark';
   const dark=document.documentElement.classList.contains('dark');
   const bl=document.getElementById('btnThemeLight');
   const bd=document.getElementById('btnThemeDark');
@@ -551,7 +584,7 @@ function loadLocal(){
   try{
     const d=localStorage.getItem('an_agro_data');
     if(d){ const parsed=JSON.parse(d); if(parsed&&typeof parsed==='object') S=parsed; }
-    if(!S.settings) S.settings={showCost:false, theme:'auto', muted:false};
+    if(!S.settings) S.settings={showCost:false, theme:'dark', muted:false};
   try{ if(localStorage.getItem('an_agro_muted')==='1') S.settings.muted=true; }catch{}
     if(!Array.isArray(S.p)) S.p=[];
     if(!Array.isArray(S.c)) S.c=[];
@@ -562,7 +595,7 @@ function loadLocal(){
     if(!Array.isArray(S.log)) S.log=[];
     const n=localStorage.getItem('an_agro_nav');
     if(n) navItems=JSON.parse(n);
-    admin=localStorage.getItem('an_agro_admin')==='1';
+    admin=false; /* دائماً مقفول عند الفتح */
   }catch{}
 }
 function addLog(type, text, extra){
@@ -573,7 +606,7 @@ function addLog(type, text, extra){
 
 /* ===== SEED ===== */
 function seed(){
-  return { p:[], c:[], s:[], o:[], e:[], inst:[], log:[], settings:{ showCost:false, theme:'auto' } };
+  return { p:[], c:[], s:[], o:[], e:[], inst:[], log:[], settings:{ showCost:false, theme:'dark' } };
 }
 
 const DEFAULT_NAV = [
@@ -945,7 +978,10 @@ function vs(){
       <table>
         ${S.s.slice(-15).reverse().map(s=>`<tr>
           <td>#${s.id}</td><td>${s.d}</td><td>${E(C(s.c)?.n||'نقدي')}</td><td>${M(s.t)}</td>
-          <td><button class="s" onclick="inv(${s.id})">عرض</button></td>
+          <td style="white-space:nowrap">
+            <button class="s" onclick="inv(${s.id})">عرض</button>
+            <button class="s danger" onclick="delSale(${s.id})">حذف</button>
+          </td>
         </tr>`).join('')||'<tr><td class="empty">لا فواتير بعد</td></tr>'}
       </table>
     </div>
@@ -1307,6 +1343,32 @@ function returnSale(id){
   s.returned=true;
   save(); cm(); toast('تم المرتجع'); go('s');
 }
+function delSale(id){
+  const s=S.s.find(x=>x.id==id); if(!s) return;
+  if(!confirm('حذف الفاتورة #'+id+' نهائياً؟\n'+(s.returned?'(مرتجعة مسبقاً — لن يتغير المخزن)':'سيتم إرجاع الكميات للمخزن وتعديل المديونية'))) return;
+  if(!s.returned){
+    (s.it||[]).forEach(i=>{
+      const p=P(i.p); if(p){ p.q=Math.round((p.q+(+i.q||0))*100)/100; }
+    });
+    // عكس المديونية المتبقية على العميل
+    const cust=C(s.c);
+    if(cust){
+      let dueAmt=0;
+      if(Array.isArray(S.inst)){
+        dueAmt=S.inst.filter(z=>z.saleId==id && !z.paid).reduce((a,z)=>a+(+z.amount||0),0);
+      }
+      if(!dueAmt) dueAmt=Math.max(0,(+s.t||0)-(+s.pd||0));
+      cust.db=Math.max(0,(cust.db||0)-dueAmt);
+      const next=(S.inst||[]).filter(x=>x.custId==s.c && x.saleId!=id && !x.paid).sort((a,b)=>a.due.localeCompare(b.due))[0];
+      cust.due=next?next.due:null;
+    }
+  }
+  if(Array.isArray(S.inst)) S.inst=S.inst.filter(z=>z.saleId!=id);
+  S.s=S.s.filter(x=>x.id!=id);
+  addLog('حذف فاتورة', 'تم حذف الفاتورة #'+id, {saleId:id});
+  save(); cm(); toast('تم حذف الفاتورة'); go('s');
+}
+
 function getDueInstallments(days=3){
   if(!Array.isArray(S.inst)) return [];
   return S.inst.filter(x=>!x.paid && x.due && dl(x.due)<=days && dl(x.due)>=0);
@@ -1369,6 +1431,7 @@ function vcu(){
         <button class="s" onclick="pay(${c.id})">سداد</button>
         <button class="s" onclick="setDue(${c.id})">موعد</button>
         <a class="s" target="_blank" href="${wa(c.ph,'مرحباً '+c.n+'، رصيدكم لدى A&N Agro: '+M(c.db))}">واتساب</a>
+        <button class="s danger" onclick="delCust(${c.id})">حذف</button>
       </td>
     </tr>`).join('')}
   </table></div>`;
@@ -1391,6 +1454,16 @@ const pay=id=>form('سداد من '+C(id).n,[['q','المبلغ','number']],{q:'
 const setDue=id=>form('موعد قسط: '+C(id).n,[['due','التاريخ','date']],{due:C(id).due||''},v=>{
   C(id).due=v.due||null;
 });
+function delCust(id){
+  const c=C(id); if(!c) return;
+  const invCount=S.s.filter(s=>s.c==id).length;
+  const msg='حذف العميل «'+c.n+'»؟'+(c.db?('\nعليه مديونية: '+M(c.db)):'')+(invCount?('\nمرتبط بـ '+invCount+' فاتورة (الفواتير لن تُحذف)'):'');
+  if(!confirm(msg)) return;
+  S.c=S.c.filter(x=>x.id!=id);
+  if(Array.isArray(S.inst)) S.inst=S.inst.filter(x=>x.custId!=id);
+  if(cu==id) cu=0;
+  save(); toast('تم حذف العميل');
+}
 
 
 /* Expenses */
@@ -2039,6 +2112,7 @@ function inv(id){
       <button class="b" id="invSaveBtn" disabled style="opacity:.5" onclick="downloadInvPdf(${s.id})">⬇️ حفظ PDF</button>
       <button class="b" id="invWaBtn" disabled style="background:#25a244;opacity:.55" onclick="waInvPdf(${s.id})">⏳ جاري التجهيز...</button>
       ${!s.returned?`<button class="s danger" onclick="returnSale(${s.id})">↩ مرتجع</button>`:'<span class="r">مرتجعة</span>'}
+      <button class="s danger" onclick="delSale(${s.id})">🗑 حذف الفاتورة</button>
       <button class="s" onclick="cm()">إغلاق</button>
     </div>
   </div></div>`;
@@ -2362,15 +2436,20 @@ function vw(){
       const b=window.__BOOT_DATA__;
       if(b.S) S=b.S;
       if(b.nav) navItems=b.nav;
-      if(b.admin) admin=!!b.admin;
+      /* لا تفتح الإدارة تلقائياً من الملف المحفوظ */
     }catch{}
   }
   // 2) localStorage (browser persistence)
   loadLocal();
-  if(!S.settings) S.settings={showCost:false, theme:'auto'};
+  admin=false; /* الإدارة مقفولة عند كل فتح */
+  if(!S.settings) S.settings={showCost:false, theme:'dark', muted:false};
+  // افتح دائماً على الوضع الليلي
+  S.settings.theme='dark';
+  try{ localStorage.setItem('an_theme','dark'); }catch{}
   if(!Array.isArray(S.p)) S.p=[];
   if(!Array.isArray(S.log)) S.log=[];
   if(!Array.isArray(S.inst)) S.inst=[];
+  if(!Array.isArray(S.e)) S.e=[];
   applyTheme();
   renderNav();
   vw();
